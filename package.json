@@ -1,8 +1,8 @@
 {
-  "name": "project-hashmap-the-odin-project",
+  "name": "project-binary-search-trees-the-odin-project",
   "version": "1.0.0",
-  "description": "Hash map and hash set practice from The Odin Project: a HashMap class that hashes keys into its own bucket array, grows and rehashes past a 0.75 load factor, plus the HashSet built on top of it.",
-  "main": "src/modules/hashMap.js",
+  "description": "Balanced binary search tree practice from The Odin Project: a Tree class that builds a sorted, duplicate-free tree out of an array and supports insertion, deletion, breadth-first and depth-first traversal, height, depth, balance checks and rebalancing.",
+  "main": "src/modules/tree.js",
   "scripts": {
     "test": "jest",
     "test:watch": "jest --watch",
@@ -14,18 +14,18 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/w3nc/Project-HashMap-The-Odin-Project.git"
+    "url": "git+https://github.com/w3nc/Project-Binary-Search-Trees-The-Odin-Project.git"
   },
   "keywords": [
-    "hashmap",
-    "hash-set",
+    "binary-search-tree",
+    "tree-traversal",
     "data-structures",
     "the-odin-project"
   ],
   "bugs": {
-    "url": "https://github.com/w3nc/Project-HashMap-The-Odin-Project/issues"
+    "url": "https://github.com/w3nc/Project-Binary-Search-Trees-The-Odin-Project/issues"
   },
-  "homepage": "https://github.com/w3nc/Project-HashMap-The-Odin-Project#readme",
+  "homepage": "https://github.com/w3nc/Project-Binary-Search-Trees-The-Odin-Project#readme",
   "devDependencies": {
     "@babel/core": "^8.0.6",
     "@babel/preset-env": "^8.0.6",

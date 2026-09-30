@@ -1,11 +1,9 @@
-# Project-HashMap-The-Odin-Project
+# Project-Binary-Search-Trees-The-Odin-Project
 
-Hash map project for The Odin Project: a HashMap class that hashes keys into its
-own bucket array, grows and rehashes once the load factor passes 0.75.
-
-Additional Feature:
-
-- HashSet built on top of it.
+Balanced binary search tree project for The Odin Project: a Tree class that sorts
+an array, drops the duplicates and balances it into a tree of Node objects, plus
+the insert, delete, traversal, height, depth, balance and rebalance methods on
+top of it.
 
 ## Modules
 
@@ -14,6 +12,8 @@ The source files use ES module syntax (`import` / `export default`).
 ## Scripts
 
 `npm test`
+
+`npm run test:watch`
 
 `npm run lint`
 
@@ -27,46 +27,42 @@ The source files use ES module syntax (`import` / `export default`).
 
 ## API
 
-`HashMap`
+`Node`
 
-Starts with a 0.75 load factor and 16 buckets; `new HashMap(loadFactor, capacity)` overrides either.
+Holds the `data` it stores as well as the `left` and `right` children.
 
-`loadFactor` = the load the map grows past, 0.75 by default.
+`Tree`
 
-`capacity` = number of buckets, doubled and rehashed once that load is passed.
+Starts from an array of numbers; `buildTree(array)` sorts it, removes the
+duplicates and returns the level-0 root node, so `new Tree([1, 7, 4, 23])` is
+already balanced.
 
-`hash(key)` = folds the key's hash code into the current capacity and returns the bucket index.
+`root` = the level-0 node, null when the array is empty.
 
-`set(key, value)` = stores the pair, overwriting the value when the key exists, and doubles the buckets once the load factor is passed.
+`includes(value)` = true when the value is in the tree, false otherwise.
 
-`get(key)` = stored value, undefined when the key is missing.
+`insert(value)` = adds a node while preserving the binary search property: lower values to the left, greater values to the right, and nothing at all when the value already exists.
 
-`has(key)` = true when the key is stored, false otherwise.
+`deleteItem(value)` = removes the node, handling the leaf, one-child and two-child cases, and does nothing when the value is missing.
 
-`remove(key)` = true when the entry is removed, false when the key is missing.
+`levelOrderForEach(callback)` = visits every value in breadth-first level order.
 
-`length()` = number of stored entries.
+`inOrderForEach(callback)` = visits every value from lowest to highest.
 
-`clear()` = removes every entry, keeping the current capacity.
+`preOrderForEach(callback)` = visits every value root first.
 
-`keys()` = array of the stored keys.
+`postOrderForEach(callback)` = visits every value leaves first.
 
-`values()` = array of the stored values.
+`height(value)` = number of edges in the longest path from that node down to a leaf, undefined when the value is missing.
 
-`entries()` = array of [ key, value ] pairs.
+`depth(value)` = number of edges in the path from that node up to the root, undefined when the value is missing.
 
-`HashSet`
+`isBalanced()` = true when the left and right subtrees of every single node differ in height by no more than 1.
 
-Built on a HashMap, so it grows the same way but holds keys only.
+`rebalance()` = feeds an in-order traversal back into `buildTree`, so an unbalanced tree becomes balanced again.
 
-`add(key)` = stores the key, ignoring duplicates.
+Every traversal throws an Error when it is called without a callback.
 
-`has(key)` = true when the key is stored, false otherwise.
+`buildTree(array)` stays private to the module and runs once for `root`.
 
-`remove(key)` = true when the key is removed, false when the key is missing.
-
-`length()` = number of stored keys.
-
-`clear()` = removes every key.
-
-`keys()` = array of the stored keys.
+`prettyPrint(node)` is a named export that `console.log`s a tree in a structured format.
